@@ -78,11 +78,11 @@ function studentSearch () {
   <button type="button"><img src="img/icn-search.svg" alt="Search icon"></button>
 </label>`;
   studentSearchBar.insertAdjacentHTML('beforeend', studentSearchBar);
-  studentSearchBar.addEventListner('keyUp', (e) => {
+  studentSearchBar.addEventListener('keyup', (e) => {
     console.log(e);
 
   });
 };
-studentSearch();
+studentSearch(data);
 
 

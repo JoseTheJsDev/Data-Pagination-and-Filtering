@@ -8,9 +8,10 @@ Create the `showPage` function
 This function will create and insert/append the elements needed to display a "page" of nine students
 */
 //Global Variables
-const studentList = document.querySelector(".student-list");
-const studentSearchBar = document.querySelector(".header");
+const studentList = document.querySelector('.student-list');
+const studentSearchBar = document.querySelector('.header');
 const studentData = data;
+
 //This function will create and insert/append the elements needed to display a "page" of nine students
 function showPage (list, page)  {
 
@@ -80,7 +81,8 @@ function studentSearch () {
   studentSearchBar.addEventListner('keyUp', (e) => {
     console.log(e);
 
-  })
-}
+  });
+};
+studentSearch();
 
 

@@ -52,7 +52,7 @@ function addPagination(list) {
               document.querySelector('.active').className = '';
               e.target.className = 'active';
               let text = e.target.textContent;
-              showPage(data, text);
+              showPage(list, text);
           }
          });
       }

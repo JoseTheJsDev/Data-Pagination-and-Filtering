@@ -39,7 +39,7 @@ function addPagination(list) {
   linkList.innerHTML = '';
 
    // For loop that loops over the number of pages needed
-      for(let i = 1; i <= numOfPages; i++){
+   for(let i = 1; i <= numOfPages; i++){
        let button = `
         <li>
           <button type="button">${i}</button>
@@ -60,20 +60,23 @@ function addPagination(list) {
 }
 //Function that creates a search bar to filter through the students.
 function studentSearch () {
-      const searchBar = `<label for="search" class="student-search">
-      <span>Search by name</span>
-      <input id="search" placeholder="Search by name...">
-      <button type="button"><img src="img/icn-search.svg" alt="Search icon"></button>
-     </label>`;
+    const searchBar = `
+      <label for="search" class="student-search">
+        <span>Search by name</span>
+        <input id="search" placeholder="Search by name...">
+        <button type="button"><img src="img/icn-search.svg" alt="Search icon"></button>
+      </label>
+      `;
+
       studentSearchBar.insertAdjacentHTML('beforeend', searchBar);
       const searchingStudents = document.querySelector('#search');
       studentSearchBar.addEventListener('keyup', (e) => {
         let matches = []
           for (const student of studentData) {
             const fullName = `${student.name.first} ${student.name.last}`.toLowerCase()
-            if (fullName.includes(searchingStudents.value.toLowerCase() )) {
-                matches.push(student)
-            }
+             if (fullName.includes(searchingStudents.value.toLowerCase() )) {
+             matches.push(student)
+           }
           }
           showPage(matches, 1);
           addPagination(matches);
@@ -83,7 +86,7 @@ function studentSearch () {
           }
       });
     };
-    // Invoking functions
-    showPage(data, 1);
-    addPagination(data);
-    studentSearch(data);
+// Invoking functions
+showPage(data, 1);
+addPagination(data);
+studentSearch(data);

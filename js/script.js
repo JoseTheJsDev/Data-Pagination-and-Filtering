@@ -69,20 +69,22 @@ function studentSearch () {
       `;
 
       studentSearchBar.insertAdjacentHTML('beforeend', searchBar);
+
       const searchingStudents = document.querySelector('#search');
+
       studentSearchBar.addEventListener('keyup', (e) => {
-        let matches = []
-          for (const student of studentData) {
-            const fullName = `${student.name.first} ${student.name.last}`.toLowerCase()
-             if (fullName.includes(searchingStudents.value.toLowerCase() )) {
-             matches.push(student)
-           }
-          }
-          showPage(matches, 1);
-          addPagination(matches);
-          
+        const query = searchingStudents.value.toLowerCase();
+
+        let results = studentData.filter(function (student) {
+            let fullName = `${student.name.first.toLowerCase()} ${student.name.last.toLowerCase()}`
+            return fullName.includes(query);
+        });
+
+        showPage(results, 1);
+        addPagination(results);
+
           // if statement for showing "no results'
-          if (matches.length === 0) {
+          if (results.length === 0) {
             studentList.insertAdjacentHTML('beforeend', `<h1>No Results</h1>`)
           }
       });

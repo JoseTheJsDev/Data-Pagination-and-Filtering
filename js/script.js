@@ -80,6 +80,7 @@ function studentSearch () {
           }
           showPage(matches, 1);
           addPagination(matches);
+          
           // if statement for showing "no results'
           if (matches.length === 0) {
             studentList.insertAdjacentHTML('beforeend', `<h1>No Results</h1>`)

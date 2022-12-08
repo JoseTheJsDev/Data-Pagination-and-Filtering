@@ -5,37 +5,38 @@ const studentSearchBar = document.querySelector('.header');
 const studentData = data;
 
 //This function will create and insert/append the elements needed to display a "page" of nine students
-  function showPage (list, page)  {
+function showPage (list, page)  {
    const startIndex = page * 9 - 9;
    const endIndex = page * 9;
    studentList.innerHTML = '';
 
-   //For loop that loops through the array of students and creates an element for each student
-   for(let i = 0; i < list.length; i ++ ) {
-      if (i >= startIndex && i < endIndex) {
-
-        let studentItem = `
+  //For loop that loops through the array of students and creates an element for each student
+  for(let i = 0; i < list.length; i ++ ) {
+    if (i >= startIndex && i < endIndex) {
+      
+      let studentItem = `
         <li class="student-item cf">
-          <div class="student-details">
-            <img class="avatar" src="${list[i].picture.large}" alt="Profile Picture" />
-            <h3>${list[i].name.first} ${list[i].name.last}</h3>
-            <span class="email">${list[i].email}</span>
-          </div>
-          <div class="joined-details">
-            <span class="date">${list[i].registered.date}</span>
-          </div>
+        <div class="student-details">
+          <img class="avatar" src="${list[i].picture.large}" alt="Profile Picture" />
+          <h3>${list[i].name.first} ${list[i].name.last}</h3>
+          <span class="email">${list[i].email}</span>
+        </div>
+        <div class="joined-details">
+          <span class="date">${list[i].registered.date}</span>
+        </div>
         </li>
       `;
+
       studentList.insertAdjacentHTML("beforeend", studentItem);
       }
    }
 };
-    // This function creates and apppends the elements needed for the pagination buttons
-     function addPagination(list) {
-   // This variable calculates the number of pages needed
-      const numOfPages = Math.ceil(list.length/ 9);
-      const linkList = document.querySelector('.link-list');
-      linkList.innerHTML = '';
+// This function creates and apppends the elements needed for the pagination buttons
+function addPagination(list) {
+  // This variable calculates the number of pages needed
+  const numOfPages = Math.ceil(list.length/ 9);
+  const linkList = document.querySelector('.link-list');
+  linkList.innerHTML = '';
 
    // For loop that loops over the number of pages needed
       for(let i = 1; i <= numOfPages; i++){
@@ -58,7 +59,7 @@ const studentData = data;
      
 }
 //Function that creates a search bar to filter through the students.
-    function studentSearch () {
+function studentSearch () {
       const searchBar = `<label for="search" class="student-search">
       <span>Search by name</span>
       <input id="search" placeholder="Search by name...">

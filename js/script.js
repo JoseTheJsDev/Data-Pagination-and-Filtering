@@ -55,10 +55,6 @@ function showPage (list, page)  {
       }
      
 }
-// Call functions
-showPage(data, 1);
-addPagination(data);
-
 //Function that creates a search bar to filter through the students.
     function studentSearch () {
       const searchBar = `<label for="search" class="student-search">
@@ -84,4 +80,7 @@ addPagination(data);
           }
       });
     };
+    // Invoking functions
+    showPage(data, 1);
+    addPagination(data);
     studentSearch(data);
